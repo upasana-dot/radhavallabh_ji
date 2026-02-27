@@ -1,0 +1,60 @@
+body {
+    font-family: Georgia, serif;
+    background-color: #fdf8f2;
+    color: #3b2f2f;
+    line-height: 1.7;
+}
+
+.header {
+    background-color: #8b0000;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+.navbar {
+    background: #6B4F1D;
+    text-align: center;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+darshan-btn {
+    display: inline-block;
+    background: #7a1f1f;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.section {
+    padding: 40px 15%;
+}
+
+.section h2 {
+    color: #8b0000;
+    margin-bottom: 15px;
+}
+
+.section p {
+    margin-bottom: 15px;
+}
+
+.footer {
+    background-color: #5c1a1a;
+    color: #fff5e1;
+    text-align: center;
+    padding: 15px;
+}

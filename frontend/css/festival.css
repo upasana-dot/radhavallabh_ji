@@ -1,0 +1,46 @@
+/* Festival Banner */
+.festival-banner {
+    display: none;
+    background: linear-gradient(to right, #a11212, #d46a6a);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Festival Background */
+.festival-bg {
+    background: #fff2e6 !important;
+}
+
+/* Flower animation container */
+#flowerContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+/* Individual flower */
+.flower {
+    position: absolute;
+    width: 40px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+/* Falling animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}

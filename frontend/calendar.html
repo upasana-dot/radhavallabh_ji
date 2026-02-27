@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Events Calendar</title>
+    <link rel="stylesheet" href="css/calendar.css">
+</head>
+<body>
+
+<header class="calendar-header">
+    <h1>🗓️ Temple Events Calendar</h1>
+    <p>Shri Radha Vallabh Temple</p>
+</header>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="darshan.html">Darshan</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="book.html">Books</a>
+    <a href="virtual-darshan.html">Virtual Darshan</a>
+
+</nav>
+
+
+<!-- CONTROLS -->
+<div class="calendar-controls">
+    <button onclick="prevMonth()">❮</button>
+    <h2 id="monthYear"></h2>
+    <button onclick="nextMonth()">❯</button>
+</div>
+
+<!-- CALENDAR -->
+<div class="calendar-container">
+    <div class="calendar-grid day-names">
+        <div>Sun</div><div>Mon</div><div>Tue</div>
+        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+
+    <div class="calendar-grid dates" id="calendarDates"></div>
+</div>
+
+<script src="js/calendar.js"></script>
+</body>
+</html>

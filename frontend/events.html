@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events | Shri Radhavallabh ji  Temple</title>
+    <link rel="stylesheet" href="css/events.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>Temple Events & Festivals</h1>
+</header>
+<nav class="navbar">
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="darshan.html">Darshan</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="book.html">Books</a>
+    <a href="virtual-darshan.html">Virtual Darshan</a>
+
+</nav>
+
+<!-- FESTIVAL BANNER -->
+<!-- /* <div id="festivalBanner" class="festival-banner">
+    🌸 राधाष्टमी महोत्सव 🌸
+</div> -->
+<!-- FLOWER ANIMATION CONTAINER -->
+<!-- <div id="flowerContainer"></div> -->
+<!-- Festival Script -->
+<!-- <script src="js/festival.js"></script> -->
+
+
+
+<section class="section">
+    <h2>Events</h2>
+
+    <div class="event-card">
+        <h3>Guru Diksha Mahotsav</h3>
+        <p><b>Date:</b> 27 February 2026</p>
+        <p>Special : Initiation ceremony under Goswami Shri Hit Nimish ji Maharaj.
+        </p>
+    </div>
+    <div class="event-card">
+        <h3>🌼 Holi Celebration : </h3>
+        <p><b>Month:</b> March 2026</p>
+        <p>Holi Dando Utsav begins, featuring floral decorations and special Yugal Darshan.
+        </p>
+    </div>
+    <div class="event-card">
+        <h3>🌼 Baisakh Shukla Paksh Events</h3>
+        <p><b>Month:</b> May 2026</p>
+        <p>
+            <li>May 3-6: 4-day Yatra, including Ratri Jagran on May 5.</li>
+            <li> May 6: 540th Appearance Day of Shri Hith Harivansh Mahaprabhu, featuring Mohini Ekadashi and special processions.</li>
+        </p>
+    </div>
+    <div class="event-card">
+        <h3>🌼 Phool Bangla </h3>
+        <p><b>Summer</p>
+        <p>
+            Daily special flower decorations and cool, fragrant surroundings (Phool Bangla). 
+            during the hot summer months, the temple will be adorned with beautiful flowers, creating a serene and refreshing atmosphere for devotees.
+        </p>
+    </div>
+</section>
+
+<section class="section light">
+    <h2>Regular Poojas</h2>
+    <ul>
+        <li>मंगला आरती: प्रात: 5:00 - 5:30 (ग्रीष्मकाल/शीतकाल के अनुसार थोड़ा परिवर्तन संभव)।</li>
+        <li>शृंगार और दर्शन: सुबह 7:00 बजे के बाद ठाकुर जी को सुंदर वस्त्रों और आभूषणों से सजाया जाता है।</li>
+        <li>भोग सेवा: सुबह-शाम माखन, मिश्री, पेड़ा, और राजभोग (पूरी, सब्जी, चावल) अर्पित किया जाता है।</li>
+        <li>राजभोग आरती/दोपहर: दोपहर 12:00 बजे तक दर्शन के बाद मंदिर के पट बंद होते हैं।</li>
+        <li>संध्या/शयन आरती: शाम 5:30/6:30 बजे से रात 9:00 बजे तक।</li>
+
+    </ul>
+</section>
+
+<h2 class="page-title">Upcoming Temple Events</h2>
+
+<!-- EVENTS GRID -->
+<div class="events-grid">
+
+    <div class="event-card" onclick="openEvent(
+        'Radhashtami',
+        'Images/radhashtami.jpg',
+        'September 3, 2026',
+        'Radhashtami is celebrated as the divine appearance day of Shri Radha Rani. Special abhishek, bhajan, and decoration are performed.'
+    )">
+        <img src="/Users/upasanaporwal/Desktop/Radhavallabh ji/frontend/Images/WhatsApp Image 2026-01-15 at 21.41.23 (1).jpeg">
+        <h3>🌸 Radhashtami</h3>
+        <p>3 Sept 2026</p>
+    </div>
+
+    <div class="event-card" onclick="openEvent(
+        'Sharad Purnima',
+        'Images/sharad.jpg',
+        'October 27, 2026',
+        'Sharad Purnima is celebrated with night kirtan, maha bhog, and moonlight ras bhav.'
+    )">
+        <img src="/Users/upasanaporwal/Desktop/Radhavallabh ji/frontend/Images/WhatsApp Image 2026-01-15 at 21.41.26.jpeg">
+        <h3>🌕 Sharad Purnima</h3>
+        <p>27 Oct 2026</p>
+    </div>
+
+</div>
+
+<!-- EVENT MODAL -->
+<div id="eventModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEvent()">×</span>
+        <img id="modalImage">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDate"></p>
+        <p id="modalDesc"></p>
+    </div>
+</div>
+
+<script src="js/events.js"></script>
+<footer class="footer">
+    <p>© Shri Radhavallabh ji  Temple</p>
+</footer>
+</body>
+</html>
