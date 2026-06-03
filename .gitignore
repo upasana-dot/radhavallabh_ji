@@ -1,0 +1,6 @@
+*.db
+*.mp4
+*.mp4
+static/uploads/
+*.db
+__pycache__/

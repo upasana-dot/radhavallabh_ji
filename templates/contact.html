@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact | Shri Radhavallabh ji Temple</title>
+    <link rel="stylesheet" href="static/css/contact.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>Contact Us</h1>
+</header>
+<nav class="navbar">
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/darshan">Darshan</a>
+    <a href="/events">Events</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/contact">Contact</a>
+    <a href="/calendar">Calendar</a>
+    <a href="/book">Books</a>
+    <a href="/virtual-darshan">Virtual Darshan</a>
+</nav>
+
+
+<section class="section">
+    <h2>Temple Contact Details</h2>
+    <p>📍 Address: Radha Vallabh Ghera, Vrindavan, Uttar Pradesh, 281121.</p>
+    <p>📞 Phone: +91 75000 25000.</p>
+    <p>📧 Email: info@radhavallabhtemple.com</p>
+</section>
+
+
+<!-- PRAYER REQUEST SECTION -->
+<section class="prayer-section">
+
+    <h2>🙏 Prayer Request 🙏</h2>
+
+    <p class="prayer-text">
+        Submit your prayers and seek divine blessings
+        from Shri Radhavallabh Ji 🌸
+    </p>
+    <!-- FLASH MESSAGE -->
+
+{% with messages =
+    get_flashed_messages() %}
+    
+        {% if messages %}
+    
+            {% for message in messages %}
+    
+                <div class="flash-message">
+                    {{ message }}
+                </div>
+    
+            {% endfor %}
+    
+        {% endif %}
+    
+    {% endwith %}
+
+    <form action="/submit-prayer" method="POST">
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+        >
+    
+        <input
+            type="text"
+            name="city"
+            placeholder="Your City"
+            required
+        >
+    
+        <textarea
+            name="prayer"
+            placeholder="Write Your Prayer..."
+            required
+        ></textarea>
+    
+        <button type="submit">
+            🌸 Submit Prayer
+        </button>
+    
+    </form>
+   
+
+    <!-- SUCCESS MESSAGE -->
+    <p id="successMessage"></p>
+</section>
+<script src="static/js/prayer.js"></script>
+
+<footer class="footer">
+    <p>© Shri Radhavallabh ji  Temple</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+<html>
+    <head>
+        <title> Dashboard - Temple Admin </title>
+
+        <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/admin/dashboard.css'
+    ) }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    
+
+    </head>
+    <body>
+
+            <!-- HAMBURGER ICON -->
+
+    <div class="menu-btn"
+        onclick="showSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar"
+id="sidebar"
+onmouseleave="hideSidebar()">
+
+    <div class="logo">
+        🛕 Temple Admin
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="/dashboard-admin">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/prayers">
+                <i class="fas fa-envelope"></i>
+                Prayer Requests
+            </a>
+        </li>
+
+        <li>
+            <a href="/events-admin">
+                <i class="fas fa-calendar"></i>
+                Manage Events
+            </a>
+        </li>
+
+        <li>
+            <a href="/gallery-admin">
+                <i class="fas fa-image"></i>
+                Gallery
+            </a>
+        </li>
+
+        <li>
+            <a href="/darshan-admin">
+                <i class="fas fa-star"></i>
+                Daily Darshan
+            </a>
+        </li>
+
+        <li>
+            <a href="/books-admin">
+                <i class="fas fa-book"></i>
+                Spiritual Books
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="dashboard-content">
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+
+        <div class="welcome-box">
+
+            <h1>
+                🙏 Welcome Back Admin
+            </h1>
+
+            <p>
+                Manage your temple activities beautifully 🌸
+            </p>
+
+        </div>
+
+        <div class="clock-box">
+
+            <h2>🕰 Current Time</h2>
+
+            <p id="clock"></p>
+
+        </div>
+
+    </div>
+
+    <!-- QUICK STATS -->
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+
+            <i class="fas fa-envelope"></i>
+            <h2>{{ prayer_count }}</h2>
+
+            <p>Prayer</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fas fa-calendar"></i>
+
+            <h2>{{event_count}}</h2>
+
+            <p> Events </p>
+
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fas fa-image"></i>
+
+            <h2>{{ gallery_count}}</h2>
+
+            <p>Gallery</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fas fa-book"></i>
+
+            <h2>{{ book_count}}</h2>
+
+            <p>Book</p>
+
+        </div>
+
+    </div>
+
+    <!-- QUICK ACTIONS -->
+
+    <h2 class="section-title">
+        ⚡ Quick Actions
+    </h2>
+
+    <div class="actions-container">
+
+        <a href="/prayers" class="action-card">
+
+            <i class="fas fa-envelope-open-text"></i>
+
+            <span>
+                Prayer Requests
+            </span>
+
+        </a>
+
+        <a href="/events-admin" class="action-card">
+
+            <i class="fas fa-calendar-plus"></i>
+
+            <span>
+                Manage Events
+            </span>
+
+        </a>
+
+        <a href="/gallery-admin" class="action-card">
+
+            <i class="fas fa-images"></i>
+
+            <span>
+                Upload Gallery
+            </span>
+
+        </a>
+
+        <a href="/darshan-admin" class="action-card">
+
+            <i class="fas fa-star"></i>
+
+            <span>
+                Update Darshan
+            </span>
+
+        </a>
+
+        <a href="/books-admin" class="action-card">
+
+            <i class="fas fa-book-open"></i>
+
+            <span>
+                Spiritual Books
+            </span>
+
+        </a>
+
+    </div>
+
+    <!-- TEMPLE MESSAGE -->
+
+    <div class="message-box">
+
+        <h2>
+            🌸 Daily Spiritual Message
+        </h2>
+
+        <p>
+            "जहाँ प्रेम है, वहीं श्री राधावल्लभ जी का वास है।"
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    function showSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "0";
+    }
+    
+    function hideSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "-270px";
+    }
+    
+    /* CLOCK */
+    
+    function updateClock() {
+    
+        const now = new Date();
+    
+        document.getElementById(
+            "clock"
+        ).innerHTML =
+        now.toLocaleTimeString();
+    }
+    
+    setInterval(updateClock, 1000);
+    
+    updateClock();
+    
+    </script>
+
+        
+       
+    </body>
+</html>

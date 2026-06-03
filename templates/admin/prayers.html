@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Temple Admin Dashboard</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+        'static',
+        filename='css/admin/prayers.css'
+    ) }}">
+
+    <!-- ICONS -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- HAMBURGER ICON -->
+
+<div class="menu-btn"
+onclick="showSidebar()">
+
+    <i class="fas fa-bars"></i>
+
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar"
+id="sidebar"
+onmouseleave="hideSidebar()">
+
+    <div class="logo">
+        🛕 Temple Admin
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="/admin">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/prayers">
+                <i class="fas fa-envelope"></i>
+                Prayer Requests
+            </a>
+        </li>
+
+        <li>
+            <a href="/events-admin">
+                <i class="fas fa-calendar"></i>
+                Manage Events
+            </a>
+        </li>
+
+        <li>
+            <a href="/gallery-admin">
+                <i class="fas fa-image"></i>
+                Gallery
+            </a>
+        </li>
+
+        <li>
+            <a href="/darshan-admin">
+                <i class="fas fa-star"></i>
+                Daily Darshan
+            </a>
+        </li>
+
+        <li>
+            <a href="/books-admin">
+                <i class="fas fa-book"></i>
+                Spiritual Books
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+    <!-- TOP -->
+    <div class="topbar">
+
+        <h1>
+            🌸 Welcome Admin
+        </h1>
+
+        <div class="clock"
+        id="clock"></div>
+
+    </div>
+
+<!-- JAVASCRIPT -->
+<div class="letters-container">
+
+    {% for prayer in prayers %}
+
+    <div class="prayer-card">
+
+        <div class="flower flower1">
+            🌸
+        </div>
+
+        <div class="flower flower2">
+            🌺
+        </div>
+
+        <div class="prayer-header">
+
+            <h2>
+                💌 {{ prayer.name }}
+            </h2>
+
+            <p>
+                📍 {{ prayer.city }}
+            </p>
+
+        </div>
+
+        <button
+        class="read-btn"
+        onclick="togglePrayer('prayer-{{ prayer.id }}')">
+
+            🕉️ Read Prayer
+
+        </button>
+
+        <div
+        class="prayer-content"
+        id="prayer-{{ prayer.id }}">
+
+            <p>
+                {{ prayer.prayer }}
+            </p>
+
+            <span>
+                📅
+                {{ prayer.created_at.strftime('%d %B %Y') }}
+            </span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+
+function showSidebar() {
+
+    document.getElementById(
+        "sidebar"
+    ).style.left = "0";
+}
+
+function hideSidebar() {
+
+    document.getElementById(
+        "sidebar"
+    ).style.left = "-270px";
+}
+
+/* CLOCK */
+
+function updateClock() {
+
+    const now = new Date();
+
+    document.getElementById(
+        "clock"
+    ).innerHTML =
+    now.toLocaleTimeString();
+}
+
+setInterval(updateClock, 1000);
+
+updateClock();
+
+</script>
+
+<script>
+
+    function togglePrayer(id) {
+    
+        const prayerContent =
+        document.getElementById(id);
+    
+        if (
+            prayerContent.style.display === "block"
+        ) {
+    
+            prayerContent.style.display = "none";
+    
+        } else {
+    
+            prayerContent.style.display = "block";
+        }
+    }
+    
+    </script>
+
+</body>
+
+</html>

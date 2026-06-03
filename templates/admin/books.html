@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Books Admin</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/admin/books.css'
+    ) }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    
+
+</head>
+
+<body>
+<!-- HAMBURGER ICON -->
+
+<div class="menu-btn"
+onclick="showSidebar()">
+
+    <i class="fas fa-bars"></i>
+
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar"
+id="sidebar"
+onmouseleave="hideSidebar()">
+
+    <div class="logo">
+        🛕 Temple Admin
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="/admin">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/prayers">
+                <i class="fas fa-envelope"></i>
+                Prayer Requests
+            </a>
+        </li>
+
+        <li>
+            <a href="/events-admin">
+                <i class="fas fa-calendar"></i>
+                Manage Events
+            </a>
+        </li>
+
+        <li>
+            <a href="/gallery-admin">
+                <i class="fas fa-image"></i>
+                Gallery
+            </a>
+        </li>
+
+        <li>
+            <a href="/darshan-admin">
+                <i class="fas fa-star"></i>
+                Daily Darshan
+            </a>
+        </li>
+
+        <li>
+            <a href="/books-admin">
+                <i class="fas fa-book"></i>
+                Spiritual Books
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="container">
+
+    <h1>
+        📚 Spiritual Books
+    </h1>
+
+
+    <form
+    action="/add-book"
+    method="POST"
+    class="book-form"
+    enctype="multipart/form-data">
+    
+        <input
+        type="text"
+        name="title"
+        placeholder="Book Title"
+        required>
+
+        <input
+        type="file"
+        name="image"
+        placeholder="Book Cover Image URL"
+        required>
+    
+        <input
+        type="text"
+        name="pdf_link"
+        placeholder="PDF Link"
+        required>
+
+        <textarea
+        name="description"
+        placeholder="Book Description">
+        </textarea>
+    
+        <button type="submit">
+            Add Book
+        </button>
+    
+    </form>
+
+    <div class="book-grid">
+
+        {% for book in books %}
+        
+        <div class="book-card">
+        
+            <img
+    src="{{ url_for(
+    'static',
+    filename='uploads/books/' + book.image
+    ) }}"
+    width="150">
+        
+            <h3>
+        
+                {{ book.title }}
+        
+            </h3>
+        
+            <p>
+        
+                {{ book.description }}
+        
+            </p>
+        
+            <div class="buttons">
+        
+                <a
+                href="{{ book.pdf_link }}"
+                target="_blank">
+        
+                📥 Read / Download
+        
+                </a>
+        
+                <a
+                href="/delete-book/{{ book.id }}"
+                class="delete-btn">
+        
+                    🗑 Delete
+        
+                </a>
+        
+            </div>
+        
+        </div>
+        
+        {% endfor %}
+        
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    function showSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "0";
+    }
+    
+    function hideSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "-270px";
+    }
+    
+    /* CLOCK */
+    
+    function updateClock() {
+    
+        const now = new Date();
+    
+        document.getElementById(
+            "clock"
+        ).innerHTML =
+        now.toLocaleTimeString();
+    }
+    
+    setInterval(updateClock, 1000);
+    
+    updateClock();
+    
+    </script>
+</body>
+
+</html>

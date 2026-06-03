@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shri Radhavallabh Temple</title>
+    <link rel="stylesheet" href="static/css/home.css">
+</head>
+<body>
+    <!-- BACKGROUND LOTUS -->
+<div class="bg-lotus"></div>
+
+
+<!-- HEADER -->
+<header class="header">
+    <img src="static/Images/WhatsApp Image 2026-01-15 at 21.40.00.jpeg" alt="Left Symbol" class="header-img left">
+        <div class="header-text">
+            <h1>श्री हित राधावल्लभो जयति </h1>
+            <h1>श्री हित हरिवंश चंद्रो जयति</h1>
+            <p>Shri Radhavallabh Temple </p>
+        </div>
+    <img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.23 (1).jpeg" alt="Right Symbol" class="header-img right">
+</header>
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/darshan">Darshan</a>
+    <a href="/events">Events</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/contact">Contact</a>
+    <a href="/calendar">Calendar</a>
+    <a href="/book">Books</a>
+    <a href="/virtual-darshan">Virtual Darshan</a>
+</nav>
+
+
+    <!-- Bhajan Music Player -->
+<div class="music-player">
+    <button onclick="toggleMusic()" id="musicBtn">🔊 Play Bhajan</button>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5">
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="audio/bhajan.mp3" type="audio/mp3">
+</audio>
+</nav>
+
+    <!-- SCROLLING MANTRA -->
+    <div class="mantra-container">
+        <div class="mantra-text">
+            ॐ नमो भगवते राधा वल्लभाय &nbsp;&nbsp; | &nbsp;&nbsp;
+            प्रेम ही परम तत्व है &nbsp;&nbsp; | &nbsp;&nbsp;
+            जय श्री राधे &nbsp;&nbsp; | &nbsp;&nbsp;
+            राधा वल्लभ की जय &nbsp;&nbsp; | &nbsp;&nbsp;
+            राधा वल्लभ हरिवंश स्वरूपिणे नमः
+        </div>
+    </div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <img src="static/Images/radhat.jpg" alt="Temple Image">
+    <div class="hero-text">
+        <h2>Welcome to the Divine Abode</h2>
+        <p>“ ॐ श्री राधावल्लभ हरिवंश स्वरूपिणे, प्रेम रसामृत सिन्धवे नमः ”</p>
+    </div>
+    
+
+<!-- DAILY DARSHAN SECTION -->
+<section class="daily-darshan">
+    {% if darshan %}
+
+    <div class="today-darshan">
+    
+        <img
+        src="{{ url_for(
+        'static',
+        filename='uploads/darshan/' + darshan.image
+        ) }}">
+    
+        <h2>
+            {{ darshan.quote }}
+        </h2>
+    
+    </div>
+    
+    {% endif %}
+</section>
+<script src="static/js/daily-darshan.js"></script>
+
+
+
+<!-- DAILY QUOTE SECTION -->
+<section class="daily-quote">
+    <h2>🌸 Today’s Divine Thought 🌸</h2>
+
+    <div class="quote-box">
+        <p id="quoteText"></p>
+    </div>
+</section>
+<script src="static/js/quote.js"></script>
+
+<div class="section-divider">
+    <span>🌸</span>
+</div>
+
+<!-- LOTUS SECTION -->
+<section class="lotus-section">
+    <div class="lotus-container">
+        <img src="static/Images/lotus3.jpg" alt="Lotus" class="lotus-img">
+        <p class="lotus-text">
+            “Radha is the soul of devotion,  
+            Vallabh is the essence of love.”
+        </p>
+    </div>
+</section>
+
+<div class="section-divider">
+    <span>🌸</span>
+</div>
+
+
+
+
+<!-- DARSHAN TIMINGS
+<section class="section">
+    <h2>🛕 Darshan & Aarti Timings</h2>
+    <p>Morning: 5:00 AM (Summer) / 5:30 AM or 6:00 AM (Winter) – Mangala Aarti <br><br>
+        Morning Darshan: 7:00 AM / 7:30 AM – 12:00 PM (Includes Shringar Darshan)<br><br>
+        Afternoon: 11:30 AM / 12:00 PM – Raj Bhog Aarti<br><br>
+        Evening Darshan: 5:00 PM / 5:30 PM – 6:00 PM – Utthapan Darshan<br><br>
+        Evening Aarti: 6:00 PM / 6:30 PM – 8:30 PM / 9:00 PM (Includes Sandhya Aarti and Shayan Aarti) </p>
+</section> -->
+
+<!-- <div class="section-divider">
+    <span>🌸</span>
+</div> -->
+
+
+<!-- ABOUT TEMPLE -->
+<section class="section light">
+    <h2>About the Temple</h2>
+    <p>
+        The Radha Vallabh Temple in Vrindavan, established around 1585 CE by Goswami Hit Harivansh Mahaprabhu, is a 16th-century shrine representing "Ras-bhakti" (devotion through love).
+    </p>
+    <a href="about.html" class="btn">Read More</a>
+</section>
+
+<div class="section-divider">
+    <span>🌸</span>
+</div>
+
+<!-- DEITY SECTION -->
+<section class="section">
+    <h2>Main Deity</h2>
+    <img src="static/Images/radhavallabh ji image.jpeg" class="deity-img" alt="Lord Shiva">
+    <p>Shree Radhavallabh ji  – The symbol of love, peace, beauty and compassion.</p>
+</section>
+
+<div class="section-divider">
+    <span>🌸</span>
+</div>
+
+<!-- EVENTS -->
+<section class="section light">
+    <h2>Upcoming Events</h2>
+    <ul class="events">
+        <li>Khichdi Utsav (Jan/Feb 2026): A winter festival where special preparations are offered to the deity.        </li>
+        <li>Holi Festival (March 2026): Celebrated with intense devotion, including Gulab Dol.        </li>
+        <li>Phool Bungalow (Summer months): Floral decorations to keep the deity cool, a prominent attraction.        </li>
+        <li>Hitotsav: An 11-day festival celebrating the founder, Hith Harivansh Mahaprabhu, featuring 'Dadhi Kando' (saffron/sandalwood curd).        </li>
+        <li>Radhashtami: A 9-day celebration for the birth of Radha Rani, featuring grand decorations and kirtans.        </li>
+        <li>Patotsava (November): Commemorates the day the idol was enshrined in Vrindavan. 
+        </li>
+    </ul>
+    <a href="events.html" class="btn">View All Events</a>
+</section>
+
+<div class="section-divider">
+    <span>🌸</span>
+</div>
+
+<!-- GALLERY PREVIEW -->
+<section class="section">
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <a href="gallery.html"><img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.26.jpeg"></a>
+        <a href="gallery.html"><img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.23.jpeg"></a>
+        <a href="gallery.html"><img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.11.jpeg"></a>
+        <a href="gallery.html"><img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.29.jpeg"></a>
+    </div>
+</section>
+
+<div class="section-divider">
+    <span>🌸</span>
+</div>
+<section class="gallery-story">
+    <h2>Temple Moments</h2>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-card">
+            <img src="static/Images/1000657208.jpg" alt="Morning Darshan">
+            <p>🌅 Morning Darshan – Peaceful beginnings</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="static/Images/1000679395.jpg" alt="Festival">
+            <p>🎉 Festival Celebrations – Joy & devotion</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.35.jpeg" alt="Aarti">
+            <p> love – sewa</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="static/Images/1000813145.jpg" alt="Aarti">
+            <p>my whole world – pyari shree ji</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="static/Images/1000773426.jpg" alt="Aarti">
+            <p>🪔 Evening Aarti – Divine glow</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.24.jpeg
+            " alt="Aarti">
+            <p>Sundar jhaki – glow</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.11.jpeg
+            " alt="Aarti">
+            <p>Sundar jhaki – glow</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="static/Images/1000875798.jpg
+            " alt="Aarti">
+            <p>Sundar jhaki – glow</p>
+        </div>
+
+        <div class="gallery-card">
+            <img src="static/Images/1000816161.jpg
+            " alt="Aarti">
+            <p>Sundar jhaki – glow</p>
+        </div>
+
+        <div class="gallery-card">
+            <video controls>
+                <source src="static/Images/WhatsApp Video 2025-08-30 at 18.10.27.mp4" type="video/mp4">
+            </video>
+            <p>🎶 Bhajan & Kirtan – Soulful chants</p>
+        </div>
+    </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="section light">
+    <h2>Temple Video</h2>
+    <video controls width="80%">
+        <source src="static/Images/WhatsApp Video 2025-08-30 at 18.10.27.mp4" type="video/mp4">
+        Your browser does not support video.
+    </video>
+</section>
+
+<!-- CONTACT -->
+<section class="section">
+    <h2>Contact & Location</h2>
+    <p>📍 Address: Radha Vallabh Ghera, Vrindavan, Uttar Pradesh, 281121.</p>
+    <p>📞 Phone: +91 75000 25000.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 Shri Radhavallabh ji Temple | All Rights Reserved</p>
+</footer>
+
+<!-- scroll reveal animation js code -->
+<script>
+    const reveals = document.querySelectorAll(".reveal");
+    
+    window.addEventListener("scroll", () => {
+        reveals.forEach((reveal) => {
+            const windowHeight = window.innerHeight;
+            const revealTop = reveal.getBoundingClientRect().top;
+    
+            if (revealTop < windowHeight - 100) {
+                reveal.classList.add("active");
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>

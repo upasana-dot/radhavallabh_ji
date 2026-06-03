@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Gallery Admin</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/admin/gallery.css'
+    ) }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- HAMBURGER ICON -->
+
+<div class="menu-btn"
+onclick="showSidebar()">
+
+    <i class="fas fa-bars"></i>
+
+</div>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar"
+id="sidebar"
+onmouseleave="hideSidebar()">
+
+    <div class="logo">
+        🛕 Temple Admin
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="/admin">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/prayers">
+                <i class="fas fa-envelope"></i>
+                Prayer Requests
+            </a>
+        </li>
+
+        <li>
+            <a href="/events-admin">
+                <i class="fas fa-calendar"></i>
+                Manage Events
+            </a>
+        </li>
+
+        <li>
+            <a href="/gallery-admin">
+                <i class="fas fa-image"></i>
+                Gallery
+            </a>
+        </li>
+
+        <li>
+            <a href="/darshan-admin">
+                <i class="fas fa-star"></i>
+                Daily Darshan
+            </a>
+        </li>
+
+        <li>
+            <a href="/books-admin">
+                <i class="fas fa-book"></i>
+                Spiritual Books
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+<div class="container">
+
+    <h1>
+        🖼 Gallery Management
+    </h1>
+
+    <!-- UPLOAD SECTION -->
+
+    <div class="upload-box">
+
+        <h2>
+            Upload New Image
+        </h2>
+
+        <form
+        method="POST"
+        enctype="multipart/form-data">
+        
+            <input
+            type="text"
+            name="title"
+            placeholder="Image Caption"
+            required>
+        
+            <input
+            type="file"
+            name="images"
+            multiple
+            required>
+        
+            <button type="submit">
+        
+                📤 Upload Images
+        
+            </button>
+        
+        </form>
+
+    </div>
+
+    <!-- GALLERY GRID -->
+
+    <div class="gallery-grid">
+
+        {% for image in gallery %}
+        
+        <div class="image-card">
+        
+            <img
+            src="{{ url_for(
+                'static',
+                filename='uploads/gallery/' + image.image
+            ) }}">
+        
+            <h3>
+        
+                {{ image.title }}
+        
+            </h3>
+        
+            <p>
+        
+                📅
+                {{ image.created_at.strftime('%d %B %Y') }}
+        
+            </p>
+        
+            <a
+            href="/delete-gallery/{{ image.id }}"
+            class="delete-btn">
+        
+                🗑 Delete
+        
+            </a>
+        
+        </div>
+        
+        {% endfor %}
+        
+        </div>
+
+</div>
+
+<script>
+
+    function showSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "0";
+    }
+    
+    function hideSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "-270px";
+    }
+    
+    /* CLOCK */
+    
+    function updateClock() {
+    
+        const now = new Date();
+    
+        document.getElementById(
+            "clock"
+        ).innerHTML =
+        now.toLocaleTimeString();
+    }
+    
+    setInterval(updateClock, 1000);
+    
+    updateClock();
+    
+    </script>
+
+</body>
+
+</html>

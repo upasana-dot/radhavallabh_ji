@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery | Shri Radhavallabh ji Temple</title>
+    <link rel="stylesheet" href="static/css/gallery.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>Temple Gallery</h1>
+</header>
+<nav class="navbar">
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/darshan">Darshan</a>
+    <a href="/events">Events</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/contact">Contact</a>
+    <a href="/calendar">Calendar</a>
+    <a href="/book">Books</a>
+    <a href="/virtual-darshan">Virtual Darshan</a>
+</nav>
+
+
+<section class="section">
+    <div class="gallery">
+        <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.24.jpeg">
+        <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.27.jpeg">
+        <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.29 (1).jpeg">
+        <img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.26.jpeg">
+        <img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.11.jpeg">
+        <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.35.jpeg">
+        <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.20.jpeg">
+        <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.25 (1).jpeg">
+        <img src="static/Images/WhatsApp Image 2025-08-10 at 05.35.10.jpeg">
+        <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.29.jpeg">
+        <img src="static/Images/WhatsApp Image 2025-12-25 at 23.15.41.jpeg">
+        <img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.25.jpeg">
+        <img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.23.jpeg">
+        <img src="static/Images/WhatsApp Image 2026-01-15 at 21.41.23 (1).jpeg">
+        <img src="static/Images/1000627155.jpg">
+        <img src="static/Images/1000627458.jpg">
+        <img src="static/Images/1000638714.jpg">
+        <img src="static/Images/1000639854.jpg">
+        <img src="static/Images/1000771487.jpg">
+        <img src="static/Images/WhatsApp Image 2026-05-22 at 11.18.47.jpeg">
+        <img src="static/Images/WhatsApp Image 2026-05-22 at 11.18.48 (1).jpeg">
+        <img src="static/Images/WhatsApp Image 2026-05-22 at 11.18.48 (2).jpeg">
+        <img src="static/Images/WhatsApp Image 2026-05-22 at 11.18.48 (3).jpeg">
+        <img src="static/Images/WhatsApp Image 2026-05-22 at 11.18.48.jpeg">
+    </div>
+        {% if images %}
+
+<div class="gallery-container">
+
+    {% for image in images %}
+
+    <div class="image-card">
+
+        <img
+        src="{{ url_for(
+        'static',
+        filename='uploads/gallery/' + image.image
+        ) }}">
+
+        <h3>{{ image.title }}</h3>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+
+<h2>
+    🌸 Gallery Coming Soon
+</h2>
+{% endif %}
+</section>
+
+<section class="section light">
+    <h2>Temple Video</h2>
+    <video controls width="70%">
+        <source src="static/Images/WhatsApp Video 2025-08-30 at 18.10.27.mp4" type="video/mp4">
+        
+    </video>
+</section>
+
+<footer class="footer">
+    <p>© Shri Radhavallabh ji  Temple</p>
+</footer>
+
+</body>
+</html>

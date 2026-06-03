@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Darshan & Aarti | Shri Mahadev Temple</title>
+    <link rel="stylesheet" href="static/css/darshan.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>Darshan & Aarti Timings</h1>
+</header>
+<nav class="navbar">
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/darshan">Darshan</a>
+    <a href="/events">Events</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/contact">Contact</a>
+    <a href="/calendar">Calendar</a>
+    <a href="/book">Books</a>
+    <a href="/virtual-darshan">Virtual Darshan</a>
+</nav>
+
+
+{% if darshan %}
+
+<section class="daily-darshan">
+    <h2>
+        🌸 Today's Divine Darshan 🌸
+    </h2>
+    <div class="darshan-card">
+        <img
+        src="{{ url_for(
+        'static',
+        filename='uploads/darshan/' + darshan.image
+        ) }}">
+        <h3>
+            {{ darshan.quote }}
+        </h3>
+        <p>
+            {{ darshan.created_at.strftime('%d %B %Y') }}
+        </p>
+    </div>
+</section>
+
+{% endif %}
+
+<!-- LIVE TEMPLE STATUS -->
+<section class="live-status-section">
+
+    <div class="status-card">
+        <h2>🛕 Temple Status</h2>
+        <!-- LIVE CLOCK -->
+<div class="live-clock">
+    <h2>🕰️ Current Temple Time</h2>
+    <div id="clock"></div>
+</div>
+
+        <p id="templeStatus"></p>
+
+        <div class="countdown-box">
+            <h3>⏳ Next Aarti In</h3>
+            <p id="aartiCountdown"></p>
+        </div>
+    </div>
+</section>
+<!-- TEMPLE TIMINGS SECTION -->
+<section class="temple-timings">
+
+    <h2> Temple Darshan Timings </h2>
+
+    <div class="timings-container">
+
+        <!-- Card 1 -->
+        <div class="timing-card">
+            <h3>🌅 Mangla Aarti</h3>
+            <p>5:00 AM</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="timing-card">
+            <h3>🌸 Shringar Darshan</h3>
+            <p>8:00 AM</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="timing-card">
+            <h3>🍛 Rajbhog Darshan</h3>
+            <p>12:00 PM</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="timing-card">
+            <h3>🪔 Sandhya Aarti</h3>
+            <p>7:00 PM</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="timing-card">
+            <h3>🌙 Shayan Darshan</h3>
+            <p>9:00 PM</p>
+        </div>
+
+    </div>
+
+    <p class="note">
+        <b>🌸 Timings may change during festivals and special occasions.</b>
+        </p>
+</section>
+<script src="static/js/darshan-status.js"></script>
+
+
+
+
+<footer class="footer">
+    <p>© Shri Radhavallabh ji Temple</p>
+</footer>
+
+</body>
+</html>

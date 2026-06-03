@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial;
+
+            background: #fff8f0;
+
+            padding: 30px;
+        }
+
+        h1 {
+
+            text-align: center;
+
+            color: #7a1f1f;
+        }
+
+        .prayer-card {
+
+            background: white;
+
+            padding: 20px;
+
+            margin: 20px auto;
+
+            width: 80%;
+
+            border-radius: 20px;
+
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .time {
+
+            color: gray;
+
+            margin-top: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>🙏 Prayer Requests</h1>
+
+    {% if prayers %}
+
+        {% for prayer in prayers %}
+
+        <div class="prayer-card">
+
+            <h2>
+                🌸 {{ prayer.name }}
+            </h2>
+
+            <p>
+                <strong>City:</strong>
+                {{ prayer.city }}
+            </p>
+
+            <p>
+                <strong>Prayer:</strong>
+                {{ prayer.prayer }}
+            </p>
+
+            <p class="time">
+
+                🕒 Submitted on:
+
+                {{ prayer.created_at }}
+
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <h2 style="text-align:center;">
+
+            No Prayer Requests Yet 🙏
+
+        </h2>
+
+    {% endif %}
+
+</body>
+
+</html>

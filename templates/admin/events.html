@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Events Admin</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/admin/events.css'
+    ) }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- HAMBURGER ICON -->
+
+<div class="menu-btn"
+onclick="showSidebar()">
+
+    <i class="fas fa-bars"></i>
+
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar"
+id="sidebar"
+onmouseleave="hideSidebar()">
+
+    <div class="logo">
+        🛕 Temple Admin
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="/admin">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/prayers">
+                <i class="fas fa-envelope"></i>
+                Prayer Requests
+            </a>
+        </li>
+
+        <li>
+            <a href="/events-admin">
+                <i class="fas fa-calendar"></i>
+                Manage Events
+            </a>
+        </li>
+
+        <li>
+            <a href="/gallery-admin">
+                <i class="fas fa-image"></i>
+                Gallery
+            </a>
+        </li>
+
+        <li>
+            <a href="/darshan-admin">
+                <i class="fas fa-star"></i>
+                Daily Darshan
+            </a>
+        </li>
+
+        <li>
+            <a href="/books-admin">
+                <i class="fas fa-book"></i>
+                Spiritual Books
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+<div class="container">
+
+    <h1>
+        📅 Events Management
+    </h1>
+
+    <!-- EVENT FORM -->
+
+    <div class="event-form">
+
+        <form
+        method="POST"
+        enctype="multipart/form-data">
+
+            <input
+            type="text"
+            name="title"
+            placeholder="Event Title"
+            required>
+
+            <textarea
+            name="description"
+            placeholder="Event Description"
+            required></textarea>
+
+            <input
+            type="date"
+            name="date"
+            required>
+
+            <input
+            type="file"
+            name="image"
+            required>
+
+            <button type="submit">
+
+                Upload Event
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- EVENT CARDS -->
+
+    {% for event in events %}
+
+<div class="event-card">
+
+    <img src="{{ url_for(
+    'static',
+    filename='uploads/events/' + event.image
+    ) }}">
+
+    <h2>
+        {{ event.title }}
+    </h2>
+
+    <p>
+        {{ event.description }}
+    </p>
+
+    <span>
+        📅 {{ event.date }}
+    </span>
+
+</div>
+
+{% endfor %}
+</div>
+
+<script>
+
+    function showSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "0";
+    }
+    
+    function hideSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "-270px";
+    }
+    
+    /* CLOCK */
+    
+    function updateClock() {
+    
+        const now = new Date();
+    
+        document.getElementById(
+            "clock"
+        ).innerHTML =
+        now.toLocaleTimeString();
+    }
+    
+    setInterval(updateClock, 1000);
+    
+    updateClock();
+    
+    </script>
+</body>
+
+</html>

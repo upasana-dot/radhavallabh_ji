@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Darshan Admin</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for(
+    'static',
+    filename='css/admin/darshan.css'
+    ) }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <!-- HAMBURGER ICON -->
+
+</head>
+
+<body>
+
+<div class="container">
+   
+    <div class="menu-btn"
+    onclick="showSidebar()">
+    
+        <i class="fas fa-bars"></i>
+    </div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar"
+id="sidebar"
+onmouseleave="hideSidebar()">
+
+    <div class="logo">
+        🛕 Temple Admin
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="/admin">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/prayers">
+                <i class="fas fa-envelope"></i>
+                Prayer Requests
+            </a>
+        </li>
+
+        <li>
+            <a href="/events-admin">
+                <i class="fas fa-calendar"></i>
+                Manage Events
+            </a>
+        </li>
+
+        <li>
+            <a href="/gallery-admin">
+                <i class="fas fa-image"></i>
+                Gallery
+            </a>
+        </li>
+
+        <li>
+            <a href="/darshan-admin">
+                <i class="fas fa-star"></i>
+                Daily Darshan
+            </a>
+        </li>
+
+        <li>
+            <a href="/books-admin">
+                <i class="fas fa-book"></i>
+                Spiritual Books
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+    <h1>
+        🌸 Daily Darshan Management
+    </h1>
+
+    <!-- FORM -->
+
+    <div class="darshan-form">
+
+        <form
+        method="POST"
+        enctype="multipart/form-data">
+
+            <textarea
+            name="quote"
+            placeholder="Today's Divine Quote"
+            required></textarea>
+
+            <input
+            type="file"
+            name="image"
+            required>
+            <button type="submit">
+                Upload Darshan
+            </button>
+        </form>
+    </div>
+
+    <!-- PREVIEW -->
+
+    <div class="darshan-preview">
+        {% if darshan %}
+
+<div class="darshan-preview">
+
+    <img
+    src="{{ url_for(
+        'static',
+        filename='uploads/darshan/' + darshan.image
+    ) }}">
+
+    <div class="date">
+
+        📅
+        {{ darshan.created_at.strftime('%d %B %Y') }}
+
+    </div>
+
+    <h2>
+
+        {{ darshan.quote }}
+
+    </h2>
+
+    <a
+    href="/delete-darshan/{{ darshan.id }}"
+    class="delete-btn">
+
+        🗑 Delete Darshan
+
+    </a>
+
+</div>
+
+{% endif %}
+
+ 
+
+</div>
+
+<script>
+
+    function showSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "0";
+    }
+    
+    function hideSidebar() {
+    
+        document.getElementById(
+            "sidebar"
+        ).style.left = "-270px";
+    }
+    
+    /* CLOCK */
+    
+    function updateClock() {
+    
+        const now = new Date();
+    
+        document.getElementById(
+            "clock"
+        ).innerHTML =
+        now.toLocaleTimeString();
+    }
+    
+    setInterval(updateClock, 1000);
+    
+    updateClock();
+    
+    </script>
+
+</body>
+
+</html>
